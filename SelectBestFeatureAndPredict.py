@@ -135,7 +135,7 @@ def getBestResultsWithSingleDf(df,all_feature_lst,sklearn_algorithm=None):
             df_train_test = concatLabel(df_train_test,df_label)
             X_train,X_test, y_train, y_test = getTrainTestSet(df_train_test)
             X_pre = formatPredcitedData(df_pre,l)
-            reg.fit(X_train,y_train)
+            reg.fit(X_train,y_train.values.ravel())
             r2 = reg.score(X_test,y_test)
             true_pre = reg.predict(X_pre)
             r2_lst.append(r2)
